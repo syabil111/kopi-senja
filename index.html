@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kopi Senja — Kopi yang tenang, untuk waktu yang sibuk</title>
+<meta name="description" content="Kopi Senja: kedai kopi dan roastery. Espresso, manual brew, dan minuman non-kopi. Pesan via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js';</script>
+<style>
+:root{
+  --night:#22150F; --ember:#2E1D15; --cream:#F6EFE4; --cream-2:#FFFBF3; --panel:#EFE6D6;
+  --ink:#2B1B12; --muted:#7B6552; --inv:#F6EFE4; --gold:#D8A45C;
+  --gold-soft:rgba(216,164,92,.32); --line-d:rgba(216,164,92,.22); --line-l:rgba(216,164,92,.20);
+  --glow:rgba(216,164,92,.28); --halo:0 12px 32px rgba(216,164,92,.22);
+  --s1:8px; --s2:12px; --s3:20px; --s4:28px; --s5:48px; --s6:88px; --s7:128px;
+  --r-s:4px; --r-c:12px; --r-p:9999px;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif; --disp:'Fraunces',Georgia,serif; --script:'Caveat',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:var(--s3)}
+.label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{font-family:var(--script);font-size:13px;color:var(--gold)}
+.h1{font-family:var(--disp);font-size:38px;line-height:.95;letter-spacing:-.01em}
+.h2{font-family:var(--disp);font-size:32px;line-height:1.05;letter-spacing:-.01em}
+.h3{font-size:20px;font-weight:700;line-height:1.25}
+.price{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.muted{color:var(--muted)}
+.measure{max-width:34rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:48px;padding:0 22px;border-radius:var(--r-p);border:1px solid transparent;font-size:15px;font-weight:700;transition:background .18s ease-out,color .18s ease-out,border-color .18s ease-out}
+.btn-p{background:var(--gold);color:var(--ink)}
+.btn-p:hover{background:var(--night);color:var(--cream)}
+.btn-g{border-color:var(--gold);color:var(--gold)}
+.btn-g:hover{background:var(--gold);color:var(--ink)}
+.btn-s{min-height:40px;padding:0 16px;font-size:13px}
+.sec{padding-block:var(--s6)}
+.sec-head{display:grid;gap:var(--s2);margin-bottom:var(--s5)}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(34,21,15,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-d);color:var(--inv)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);height:64px}
+.mark{font-family:var(--disp);font-size:19px}
+.mark span{color:var(--gold)}
+.nav{display:none;gap:var(--s4);font-size:14px}
+.nav a{opacity:.82;transition:opacity .18s,color .18s}
+.nav a:hover{opacity:1;color:var(--gold)}
+.hdr-r{display:flex;align-items:center;gap:var(--s2)}
+.status{display:none;align-items:center;gap:var(--s1);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.dot{width:4px;height:4px;border-radius:var(--r-p);background:var(--gold);box-shadow:0 0 0 2px rgba(216,164,92,.28);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.navm{position:relative}
+.navm summary{list-style:none;cursor:pointer;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);min-height:44px;display:flex;align-items:center}
+.navm summary::-webkit-details-marker{display:none}
+.navm-p{position:absolute;right:0;top:calc(100% + 10px);display:grid;min-width:190px;background:var(--ember);border:1px solid var(--line-d);border-radius:var(--r-s);padding:var(--s1)}
+.navm-p a{padding:10px var(--s2);font-size:14px;border-radius:var(--r-s)}
+.navm-p a:hover{color:var(--gold)}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--night);color:var(--inv);min-height:78vh;display:flex;align-items:center;padding-block:var(--s5) var(--s6)}
+.glow{position:absolute;top:-140px;right:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(216,164,92,0) 70%);animation:breathe 18s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:translateY(-12px)}50%{transform:translateY(12px)}}
+.hero-in{position:relative;display:grid;gap:var(--s4)}
+.hero .h1{max-width:12ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.peek{display:flex;gap:var(--s2);overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:var(--s1);margin-inline:calc(var(--s3) * -1);padding-inline:var(--s3);scrollbar-width:none}
+.peek::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;gap:var(--s1);padding:10px 16px;border:1px solid var(--line-d);border-radius:var(--r-p);font-size:13px;color:rgba(246,239,228,.86);white-space:nowrap}
+.chip b{color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.anim{opacity:0;transform:translateY(22px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.horizon{height:96px;background:linear-gradient(180deg,#22150F 0%,#4A2E1E 55%,#F6EFE4 100%)}
+/* menu */
+.filters{display:flex;gap:var(--s1);overflow-x:auto;padding-bottom:var(--s1);margin-bottom:var(--s4);scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.f-btn{flex:0 0 auto;min-height:44px;padding:0 18px;border:1px solid var(--gold-soft);border-radius:var(--r-p);font-size:13px;font-weight:700;color:var(--muted);transition:background .18s,color .18s,border-color .18s}
+.f-btn:hover{border-color:var(--gold);color:var(--ink)}
+.f-btn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.grid{display:grid;grid-template-columns:1fr;gap:var(--s3)}
+.card{display:flex;flex-direction:column;gap:var(--s2);background:var(--cream-2);border:1px solid var(--line-l);border-radius:var(--r-s);padding:var(--s3);transition:transform .2s ease-out,border-color .2s ease-out,box-shadow .2s ease-out}
+.card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:var(--halo)}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2)}
+.card p{font-size:14px;color:var(--muted)}
+.add{width:100%;min-height:44px;display:flex;align-items:center;gap:6px;color:var(--gold);font-weight:700;font-size:14px;text-align:left;border-top:1px solid var(--line-l);padding-top:var(--s2);transition:color .18s}
+.add:hover{color:var(--ink)}
+.add.done{color:var(--ink)}
+/* cart */
+.cart-wrap{position:relative;margin-top:var(--s5)}
+.cart-glow{position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(216,164,92,0) 70%);opacity:.75;transition:opacity .18s ease-out;pointer-events:none}
+.cart-wrap.flare .cart-glow{opacity:1;background:radial-gradient(circle,rgba(216,164,92,.45) 0%,rgba(216,164,92,0) 70%)}
+.cart{position:relative;background:var(--panel);border:1px solid var(--gold-soft);border-radius:var(--r-c);padding:var(--s3);display:grid;gap:var(--s3)}
+.c-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:var(--s2);padding-block:var(--s2);border-top:1px solid var(--gold-soft);animation:rowIn .42s cubic-bezier(.16,1,.3,1) both}
+@keyframes rowIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.c-name{font-size:14px;font-weight:600}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--gold-soft);border-radius:var(--r-s);font-size:18px;font-weight:700;transition:background .18s,color .18s}
+.qty button:hover{background:var(--gold);color:var(--ink)}
+.qty span{min-width:22px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);border-top:1px solid var(--gold-soft);padding-top:var(--s3)}
+.total .price{font-size:22px}
+.empty{color:var(--muted);font-size:14px;border-top:1px solid var(--gold-soft);padding-top:var(--s3)}
+/* story, testimoni */
+.story{display:grid;gap:var(--s5)}
+.pull{font-family:var(--script);font-size:22px;line-height:1.35;color:var(--gold);border-left:1px solid var(--gold);padding-left:var(--s3)}
+.shot{aspect-ratio:21/9;overflow:hidden;will-change:transform}
+.shot img{transition:transform .2s ease-out}
+.shots{display:grid;grid-template-columns:1fr;gap:var(--s3)}
+.quote{background:var(--cream-2);border:1px solid var(--line-l);border-radius:var(--r-s);padding:var(--s3);display:grid;gap:var(--s2)}
+.who{display:flex;align-items:center;gap:var(--s2);font-size:13px}
+.avatar{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;border-radius:var(--r-p);background:var(--gold);color:var(--ink);font-weight:700;font-size:12px}
+/* galeri */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s1)}
+.gal figure{overflow:hidden;border:1px solid var(--line-l);aspect-ratio:4/5}
+.gal img{transition:transform .2s ease-out}
+.gal figure:hover img{transform:scale(1.04)}
+/* kunjungi */
+.visit{display:grid;gap:var(--s4);background:var(--cream-2);border:1px solid var(--line-l);border-radius:var(--r-c);padding:var(--s3)}
+.hours{width:100%;border-collapse:collapse;font-size:14px}
+.hours th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:var(--s1);font-weight:700}
+.hours td{padding:9px 0;border-top:1px solid var(--line-l);font-variant-numeric:tabular-nums}
+.hours td:last-child{text-align:right}
+/* footer */
+.ftr{background:var(--night);color:var(--inv);padding-block:var(--s6) var(--s5)}
+.ftr-grid{display:grid;gap:var(--s4)}
+.ftr a:hover{color:var(--gold)}
+.ftr-list{display:grid;gap:6px;font-size:14px;opacity:.86}
+.ftr-end{margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line-d);display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:space-between;font-size:12px;opacity:.7}
+/* reveal */
+.js [data-reveal]{opacity:0;transform:translateY(22px)}
+.js [data-reveal].rv{opacity:1;transform:none;transition:opacity .56s cubic-bezier(.16,1,.3,1) var(--d,0s),transform .56s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.js .card.in{animation:fade .24s ease-out both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (min-width:720px){
+  .wrap{padding-inline:32px}
+  .nav{display:flex}
+  .navm{display:none}
+  .status{display:flex}
+  .peek{margin-inline:0;padding-inline:0}
+  .shots{grid-template-columns:1fr 1fr}
+  .shot{aspect-ratio:4/5}
+  .visit{grid-template-columns:1fr 1fr;padding:var(--s4);align-items:start}
+  .ftr-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1024px){
+  .wrap{padding-inline:48px}
+  .sec{padding-block:var(--s7)}
+  .hdr-in{height:76px}
+  .h1{font-size:72px}
+  .h2{font-size:48px}
+  .h3{font-size:22px}
+  body{font-size:16px}
+  .price{font-size:20px}
+  .hero{min-height:620px}
+  .grid{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(6,1fr)}
+  .story{grid-template-columns:1fr 1fr;align-items:center}
+  .card:hover .add{color:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  html.js [data-reveal],.js [data-reveal].rv,.anim{opacity:1!important;transform:none!important}
+  .glow{animation:none}
+}
+</style>
+</head>
+<body id="top">
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="mark" href="#top">Kopi <span>Senja</span></a>
+    <nav class="nav"><a href="#menu">Menu</a><a href="#cerita">Cerita</a><a href="#kunjungi">Kunjungi</a></nav>
+    <div class="hdr-r">
+      <p class="status"><span class="dot"></span>Buka · sampai 22.00</p>
+      <details class="navm"><summary>Menu</summary>
+        <div class="navm-p"><a href="#menu">Menu</a><a href="#keranjang">Keranjang</a><a href="#cerita">Cerita</a><a href="#kunjungi">Kunjungi</a></div>
+      </details>
+      <a class="btn btn-p btn-s" href="#keranjang">Pesan</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <p class="eyebrow anim" style="--d:.05s">dari biji, untuk jeda</p>
+      <h1 class="h1 anim" style="--d:.12s">Kopi yang tenang, untuk waktu yang sibuk.</h1>
+      <p class="measure anim" style="--d:.22s">Espresso gelap, manual brew yang sabar, dan bangku kayu dekat jendela. Dibuat pelan, disajikan hangat.</p>
+      <div class="hero-actions anim" style="--d:.32s">
+        <a class="btn btn-p" href="#menu">Pesan Sekarang</a>
+        <a class="btn btn-g" href="#cerita">Lihat Menu</a>
+      </div>
+      <p class="eyebrow anim" style="--d:.42s">— untuk waktu yang sibuk.</p>
+      <ul class="peek anim" style="--d:.5s">
+        <li class="chip"><b>01</b> Biji dari Gayo &amp; Toraja</li>
+        <li class="chip"><b>02</b> Sangrai mingguan</li>
+        <li class="chip"><b>03</b> Buka tiap hari</li>
+        <li class="chip"><b>04</b> Pesan lewat WhatsApp</li>
+      </ul>
+    </div>
+  </section>
+  <div class="horizon" aria-hidden="true"></div>
+
+  <section class="sec" id="menu">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="label muted">Menu</p>
+        <h2 class="h2">Pilih satu, lalu pelan-pelan.</h2>
+        <p class="measure muted">Enam minuman andalan. Harga sudah termasuk pajak.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter kategori menu">
+        <button class="f-btn" data-f="all" aria-pressed="true">Semua</button>
+        <button class="f-btn" data-f="espresso" aria-pressed="false">Espresso</button>
+        <button class="f-btn" data-f="manual" aria-pressed="false">Manual Brew</button>
+        <button class="f-btn" data-f="nonkopi" aria-pressed="false">Non-Kopi</button>
+      </div>
+      <div class="grid" id="grid">
+        <article class="card" data-cat="espresso" data-id="m1" data-name="Kopi Susu Senja" data-price="24000" data-reveal>
+          <div class="card-top"><h3 class="h3">Kopi Susu Senja</h3><p class="price">Rp 24.000</p></div>
+          <p>Espresso, susu segar, gula aren. Manisnya tidak berlebihan.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+        <article class="card" data-cat="espresso" data-id="m2" data-name="Espresso Tonic" data-price="28000" data-reveal>
+          <div class="card-top"><h3 class="h3">Espresso Tonic</h3><p class="price">Rp 28.000</p></div>
+          <p>Espresso pekat, tonic dingin, kulit jeruk. Segar dan tegas.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+        <article class="card" data-cat="manual" data-id="m3" data-name="V60 Gayo" data-price="32000" data-reveal>
+          <div class="card-top"><h3 class="h3">V60 Gayo</h3><p class="price">Rp 32.000</p></div>
+          <p>Gayo, seduh V60. Aroma rempah, badan bersih, manisnya panjang.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+        <article class="card" data-cat="manual" data-id="m4" data-name="Tubruk Mentik Wangi" data-price="22000" data-reveal>
+          <div class="card-top"><h3 class="h3">Tubruk Mentik Wangi</h3><p class="price">Rp 22.000</p></div>
+          <p>Kopi tubruk klasik dengan biji Mentik Wangi. Hangat dan jujur.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+        <article class="card" data-cat="nonkopi" data-id="m5" data-name="Cokelat Malam" data-price="26000" data-reveal>
+          <div class="card-top"><h3 class="h3">Cokelat Malam</h3><p class="price">Rp 26.000</p></div>
+          <p>Cokelat pekat, susu, sedikit vanila. Lembut di akhir.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+        <article class="card" data-cat="nonkopi" data-id="m6" data-name="Teh Melati Dingin" data-price="20000" data-reveal>
+          <div class="card-top"><h3 class="h3">Teh Melati Dingin</h3><p class="price">Rp 20.000</p></div>
+          <p>Daun melati, diseduh dingin. Ringan, wangi, tidak manis.</p>
+          <button class="add" data-act="add">+ Tambah</button>
+        </article>
+      </div>
+
+      <div class="cart-wrap" id="keranjang">
+        <div class="cart-glow" aria-hidden="true"></div>
+        <section class="cart" aria-label="Keranjang pesanan">
+          <div>
+            <p class="label muted">Keranjang</p>
+            <h2 class="h3" style="margin-top:6px">Pesananmu</h2>
+          </div>
+          <div id="clist"></div>
+          <div class="total"><span class="label muted">Total</span><span class="price" id="ctotal">Rp 0</span></div>
+          <a class="btn btn-p" id="wa" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 1.8.8 2 .1.1.1.3 0 .5-.1.2-.2.4-.3.5-.2.2-.3.4-.2.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.2.1.4.1.5-.1.2-.2.6-.7.8-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.9.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg>
+            <span id="walabel">Pesan via WhatsApp</span>
+          </a>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cerita" style="background:var(--cream-2)">
+    <div class="wrap">
+      <div class="story">
+        <div>
+          <div class="sec-head" data-reveal>
+            <p class="label muted">Cerita</p>
+            <h2 class="h2">Halaman depan yang dibiarkan terbuka.</h2>
+          </div>
+          <p class="measure" data-reveal>Kopi Senja lahir dari kebiasaan sederhana: menyangrai dalam jumlah kecil, menggiling saat pesanan datang, dan membiarkan tamu duduk tanpa buru-buru. Kami menyebutnya jeda — waktu singkat yang benar-benar milikmu.</p>
+          <p class="pull" data-reveal style="margin-top:var(--s4)">“Diseduh pelan, supaya harimu bisa melambat.”</p>
+        </div>
+        <div class="shot" data-reveal>
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80" alt="Barista menuang kopi dengan teknik pour-over di atas meja kayu" loading="lazy">
+        </div>
+      </div>
+
+      <h2 class="h2" style="margin:var(--s6) 0 var(--s4)" data-reveal>Kata mereka yang duduk lebih lama.</h2>
+      <div class="shots">
+        <blockquote class="quote" data-reveal>
+          <p>Tempatnya tenang tanpa terasa sepi. V60-nya bersih, dan tidak ada yang mengusir saya walau sudah dua jam.</p>
+          <footer class="who"><span class="avatar" aria-hidden="true">R</span><span><b>Rani</b><br><span class="muted">Pelanggan tetap</span></span></footer>
+        </blockquote>
+        <blockquote class="quote" data-reveal>
+          <p>Kopi susu arennya pas. Saya pesan lewat WhatsApp, sampai lokasi tinggal ambil.</p>
+          <footer class="who"><span class="avatar" aria-hidden="true">D</span><span><b>Dimas</b><br><span class="muted">Pekerja lepas</span></span></footer>
+        </blockquote>
+        <blockquote class="quote" data-reveal>
+          <p>Aroma sangrainya terasa dari pintu. Kursi dekat jendelanya favorit saya untuk membaca.</p>
+          <footer class="who"><span class="avatar" aria-hidden="true">A</span><span><b>Ayu</b><br><span class="muted">Penulis</span></span></footer>
+        </blockquote>
+      </div>
+
+      <h2 class="h2" style="margin:var(--s6) 0 var(--s4)" data-reveal>Ruangnya.</h2>
+      <div class="gal">
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Cangkir kopi di atas meja kayu dengan cahaya sore" loading="lazy"></figure>
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80" alt="Cangkir kopi hitam di atas piring putih" loading="lazy"></figure>
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Latte dengan motif daun di permukaannya" loading="lazy"></figure>
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Proses menuang kopi secara manual" loading="lazy"></figure>
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Detail meja kopi saat matahari sore masuk" loading="lazy"></figure>
+        <figure data-reveal><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Cangkir kopi di samping buku catatan" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="kunjungi">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="label muted">Kunjungi</p>
+        <h2 class="h2">Datang, duduk, pesan.</h2>
+      </div>
+      <div class="visit" data-reveal>
+        <div>
+          <h3 class="h3">Lokasi</h3>
+          <p class="muted" style="margin:var(--s2) 0 var(--s3)">[Alamat kedai diisi di sini]<br>Meja dekat jendela selalu tersedia lebih dulu.</p>
+          <a class="btn btn-g" href="https://maps.google.com/?q=Kopi+Senja" target="_blank" rel="noopener">Buka di Google Maps</a>
+        </div>
+        <div>
+          <h3 class="h3">Jam Buka</h3>
+          <table class="hours" style="margin-top:var(--s2)">
+            <thead><tr><th scope="col">Hari</th><th scope="col">Jam</th></tr></thead>
+            <tbody>
+              <tr><td>Senin – Kamis</td><td>08.00 – 22.00</td></tr>
+              <tr><td>Jumat</td><td>13.00 – 22.00</td></tr>
+              <tr><td>Sabtu – Minggu</td><td>08.00 – 22.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div data-reveal>
+        <p class="mark">Kopi <span>Senja</span></p>
+        <p class="eyebrow" style="margin-top:var(--s1)">— dari biji, untuk jeda</p>
+      </div>
+      <div data-reveal>
+        <p class="label" style="color:var(--gold)">Kontak</p>
+        <ul class="ftr-list" style="margin-top:var(--s2)">
+          <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp: +62 (nomor toko)</a></li>
+          <li><a href="mailto:halo@kopisenja.example">halo@kopisenja.example</a></li>
+          <li><a href="#kunjungi">[Alamat kedai diisi di sini]</a></li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <p class="label" style="color:var(--gold)">Sosmed &amp; Jam</p>
+        <ul class="ftr-list" style="margin-top:var(--s2)">
+          <li><a href="#" rel="noopener">Instagram · @kopisenja</a></li>
+          <li><a href="#" rel="noopener">TikTok · @kopisenja</a></li>
+          <li>Senin – Kamis · 08.00 – 22.00</li>
+          <li>Jumat · 13.00 – 22.00</li>
+          <li>Sabtu – Minggu · 08.00 – 22.00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-end"><span>© Kopi Senja</span><span>Sampai jumpa di kursi dekat jendela.</span></div>
+  </div>
+</footer>
+
+<script>
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const fmt=n=>'Rp '+n.toLocaleString('id-ID');
+const cards=$$('.card[data-id]'),M={};
+cards.forEach(c=>M[c.dataset.id]={n:c.dataset.name,p:+c.dataset.price});
+/* filter */
+$$('.f-btn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.f-btn').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  const f=b.dataset.f;
+  cards.forEach((c,i)=>{
+    const ok=f==='all'||c.dataset.cat===f;
+    c.hidden=!c.classList.toggle('in',ok)&&!ok;
+    if(ok){c.hidden=false;c.style.setProperty('--i',i);}
+  });
+}));
+/* keranjang */
+const cart=new Map(),list=$('#clist'),totalEl=$('#ctotal'),wa=$('#wa'),wrap=$('.cart-wrap');
+let shown=0;
+function render(){
+  const rows=[...cart.entries()];
+  list.innerHTML=rows.length?rows.map(([id,q])=>{
+    const m=M[id];
+    return `<div class="c-row"><div class="c-name">${m.n}</div>
+      <div class="qty"><button data-act="dec" data-id="${id}" aria-label="Kurangi ${m.n}">−</button>
+      <span aria-live="polite">${q}</span>
+      <button data-act="inc" data-id="${id}" aria-label="Tambah ${m.n}">+</button></div>
+      <div class="price">${fmt(m.p*q)}</div></div>`;
+  }).join(''):'<p class="empty">Keranjangmu masih kosong. Pilih satu kopi untuk mulai.</p>';
+  const sum=rows.reduce((a,[id,q])=>a+M[id].p*q,0);
+  if(RM.matches){totalEl.textContent=fmt(sum);shown=sum;}
+  else{
+    const from=shown,t0=performance.now();
+    (function tick(now){
+      const k=Math.min(1,(now-t0)/280),e=1-Math.pow(1-k,3);
+      totalEl.textContent=fmt(Math.round(from+(sum-from)*e));
+      if(k<1)requestAnimationFrame(tick);else shown=sum;
+    })(t0);
+  }
+  const teks=rows.length?'Halo Kopi Senja, saya mau pesan:\n'+rows.map(([id,q])=>`- ${M[id].n} x${q} (${fmt(M[id].p*q)})`).join('\n')+`\nTotal: ${fmt(sum)}`:'Halo Kopi Senja, saya mau pesan kopi.';
+  wa.href='https://wa.me/6281234567890?text='+encodeURIComponent(teks);
+}
+function flare(){
+  if(RM.matches)return;
+  wrap.classList.add('flare');
+  setTimeout(()=>wrap.classList.remove('flare'),720);
+}
+document.addEventListener('click',e=>{
+  const add=e.target.closest('.add');
+  if(add){
+    const c=add.closest('.card');
+    cart.set(c.dataset.id,(cart.get(c.dataset.id)||0)+1);
+    render();flare();
+    if(!RM.matches){
+      const old=add.textContent;
+      add.textContent='Masuk keranjang ✓';add.classList.add('done');
+      setTimeout(()=>{add.textContent=old;add.classList.remove('done');},320);
+    }
+    return;
+  }
+  const q=e.target.closest('.qty button');
+  if(q){
+    const id=q.dataset.id,n=(cart.get(id)||0)+(q.dataset.act==='inc'?1:-1);
+    if(n>0)cart.set(id,n);else cart.delete(id);
+    render();
+  }
+});
+render();
+/* scroll reveal */
+const io=new IntersectionObserver((es,o)=>{
+  es.forEach(en=>{
+    if(en.isIntersecting){
+      const sibs=[...(en.target.parentElement?.children||[])].filter(x=>x.hasAttribute('data-reveal'));
+      en.target.style.setProperty('--d',Math.min(sibs.indexOf(en.target),5)*0.06+'s');
+      en.target.classList.add('rv');o.unobserve(en.target);
+    }
+  });
+},{rootMargin:'0px 0px -15% 0px',threshold:.15});
+$$('[data-reveal]').forEach(el=>io.observe(el));
+/* parallax */
+const glow=$('.glow'),shot=$('.shot');
+if(!RM.matches){
+  let tick=false;
+  addEventListener('scroll',()=>{
+    if(tick)return;tick=true;
+    requestAnimationFrame(()=>{
+      const y=scrollY;
+      if(glow)glow.style.marginTop=(y*0.12)+'px';
+      if(shot){
+        const r=shot.getBoundingClientRect();
+        if(r.top<innerHeight&&r.bottom>0)shot.style.transform=`translate3d(0,${(r.top-innerHeight/2)*-0.06}px,0)`;
+      }
+      tick=false;
+    });
+  },{passive:true});
+}
+</script>
+</body>
+</html>
